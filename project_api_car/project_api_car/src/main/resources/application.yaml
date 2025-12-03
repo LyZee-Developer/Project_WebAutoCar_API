@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: project_api_car
+  datasource:
+    url: jdbc:postgresql://192.168.0.10:5434/db-auto
+    username: lyleangheng
+    password: heng@123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+server:
+  port: 8989
