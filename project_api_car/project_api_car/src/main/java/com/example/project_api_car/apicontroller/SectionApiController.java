@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.project_api_car.controller.SectionController;
 import com.example.project_api_car.data_model.section.SectionDataModel;
+import com.example.project_api_car.data_model.section.SectionFilterDataModel;
 import com.example.project_api_car.helper.SectionHelper;
 
 import jakarta.validation.Valid;
@@ -28,19 +29,20 @@ public class SectionApiController {
     }
     
     @PostMapping(SectionHelper.URL.List)
-    public String List(){
-        return "hello world from spring boot";
+    public ResponseEntity<?> List(@RequestBody SectionFilterDataModel filter){
+        ResponseEntity<?> result = sectionDataModel.List(filter);
+        return result;
     }
 
     @PostMapping(SectionHelper.URL.Create)
     public ResponseEntity<?> Create(@Valid @RequestBody SectionDataModel model){
         ResponseEntity<?> result = sectionDataModel.Create(model);
-        return new ResponseEntity<>(result.getBody(),result.getStatusCode());
+        return result;
     }
 
     @PostMapping(SectionHelper.URL.Update)
     public ResponseEntity<?> Update(@Valid @RequestBody SectionDataModel model){
-         ResponseEntity<?> result = sectionDataModel.Update(model);
+        ResponseEntity<?> result = sectionDataModel.Update(model);
         return result;
     }
 
@@ -52,6 +54,6 @@ public class SectionApiController {
     @GetMapping(SectionHelper.URL.Delete)
     public ResponseEntity<?> Delete(@RequestParam(value="id")  Long Id){
         var result = sectionDataModel.Delete(Id);
-        return new ResponseEntity<>(result,result.getStatusCode());
+        return result;
     }
 }
