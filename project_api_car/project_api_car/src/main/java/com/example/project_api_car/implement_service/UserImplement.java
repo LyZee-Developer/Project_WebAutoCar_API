@@ -15,8 +15,8 @@ import com.example.project_api_car.service.UserService;
 import com.example.project_api_car.specification.UserSpec;
 
 import lombok.AllArgsConstructor;
-@Service
 @AllArgsConstructor
+@Service
 public class UserImplement implements  UserService {
     private final UserRepository  userRepository;
     @Override
@@ -46,6 +46,7 @@ public class UserImplement implements  UserService {
         data.setGENDER(model.getGENDER());
         data.setPHONE(model.getPhone());
         data.setPHONE1(model.getPhone1());
+        data.setUSER_CODE(model.getUserCode());
         data.setEMAIL(model.getEmail());
         data.setUPDATED_DATE(new Date());
         userRepository.save(data);

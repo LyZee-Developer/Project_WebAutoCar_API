@@ -27,7 +27,7 @@ public class DB_USER {
     @Column(length=100)
     private String EMAIL;
     private Boolean GENDER;
-    @Column(length=20)
+    @Column(length=20,nullable=false)
     private String USER_CODE;
     @Column(length=100,name="CREATED_BY",nullable = false)
     private String CREATED_BY;

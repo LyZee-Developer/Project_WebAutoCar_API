@@ -16,6 +16,7 @@ public class UserMapper {
         data.setPHONE(model.getPhone());
         data.setPHONE1(model.getPhone1());
         data.setGENDER(model.getGENDER());
+        data.setUSER_CODE(model.getUserCode());
         data.setCREATED_BY(model.getUsername());
         data.setCREATED_DATE(new Date());
         data.setDB_CODE(model.getDatabase());
@@ -30,6 +31,7 @@ public class UserMapper {
         data.setPhone1(model.getPHONE1());
         data.setEmail(model.getEMAIL());
         data.setGender(model.getGENDER());
+        data.setCode(model.getUSER_CODE());
         data.setRecordCount(recordCount);
         data.setCreatedBy(model.getCREATED_BY());
         data.setCreatedDate(model.getCREATED_DATE());
