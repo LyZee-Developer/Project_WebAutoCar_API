@@ -1,0 +1,9 @@
+package com.example.project_api_car.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+import com.example.project_api_car.entity.DB_CAR;
+
+public interface  CarRepository extends  JpaRepository<DB_CAR, Long>,JpaSpecificationExecutor<DB_CAR>{
+}

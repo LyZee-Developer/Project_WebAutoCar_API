@@ -22,11 +22,16 @@ public class UserImplement implements  UserService {
     @Override
     public List<UserDto> List(UserFilterDataModel filter){
         var list = userRepository.findAll(UserSpec.Search(filter.getSearch()).and(UserSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+         if (filter.getStatus() != null) {
+                list = list.stream()
+                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .collect(Collectors.toList());
+        }
+        var total = list.size();
         if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
             list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
         }
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
-        var total = list.size();
         return list.stream().map(s->UserMapper.MaptoDto(s,total)).collect(Collectors.toList());
     }
 

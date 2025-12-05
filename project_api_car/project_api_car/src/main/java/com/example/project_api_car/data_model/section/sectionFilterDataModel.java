@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class SectionFilterDataModel extends IBaseFilterDataModel  {
- 
+    private Boolean Status;
 }

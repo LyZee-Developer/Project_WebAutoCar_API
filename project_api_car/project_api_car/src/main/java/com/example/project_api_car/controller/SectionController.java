@@ -51,7 +51,7 @@ public  class SectionController {
                 return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Id is required!"),HttpStatus.BAD_REQUEST);
             }
             var isExisted = sectionRepository.findById(model.getId());
-            if(!isExisted.isPresent()) new ApiResponseHandler().SetDetail(SectionHelper.Message.NotFound,HttpStatus.BAD_REQUEST);
+            if(!isExisted.isPresent()) return new ApiResponseHandler().SetDetail(SectionHelper.Message.NotFound,HttpStatus.BAD_REQUEST);
              var result = sectionImplements.Update(model);
             return ResponseEntity.ok(result);
         } catch (Exception e) {

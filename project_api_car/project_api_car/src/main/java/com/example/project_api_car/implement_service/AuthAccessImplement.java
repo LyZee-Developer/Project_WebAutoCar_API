@@ -25,9 +25,7 @@ public class AuthAccessImplement implements  AuthAccessService {
     @Override
     public List<AuthAccessDto> List(AuthAccessFilterDataModel filter){
         var list = authAccessRepository.findAll(AuthAccessSpec.Search(filter.getSearch()).and(AuthAccessSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
-        if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
-            list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
-        }
+       
         if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
         if (filter.getStatus() != null) {
                 list = list.stream()
@@ -35,6 +33,9 @@ public class AuthAccessImplement implements  AuthAccessService {
                         .collect(Collectors.toList());
         }
         var total = list.size();
+         if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
+            list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
+        }
         return list.stream().map(s->AuthAccessMapper.MaptoDto(s,total)).collect(Collectors.toList());
     }
 
@@ -47,9 +48,6 @@ public class AuthAccessImplement implements  AuthAccessService {
         var result = AuthAccessMapper.MaptoDto(data,1);
         return result;
     }
-     // In an authentication scenario, Spring Security will automatically call this:
-    // boolean isMatch = passwordEncoder.matches(rawPasswordAttempt, storedHashedPassword);
-    // The matches method handles the salting and hashing internally.
 
     @Override
     public AuthAccessDto Update(AuthAccessDataModel model){
