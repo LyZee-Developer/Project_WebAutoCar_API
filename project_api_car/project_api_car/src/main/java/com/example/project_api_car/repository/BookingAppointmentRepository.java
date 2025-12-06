@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-import com.example.project_api_car.dto.BookingAppointmentDto;
+import com.example.project_api_car.dto.BookingAppointmentListDto;
 import com.example.project_api_car.entity.DB_BOOKING_APPOINTMENT;
 
 public interface BookingAppointmentRepository extends  JpaRepository<DB_BOOKING_APPOINTMENT, Long> ,JpaSpecificationExecutor<DB_BOOKING_APPOINTMENT>{
@@ -33,6 +33,6 @@ public interface BookingAppointmentRepository extends  JpaRepository<DB_BOOKING_
                 INNER JOIN db_car car
                 ON car.id = bk.car_id
                 INNER JOIN db_service_type sv
-                ON sv.id = bk.service_id""",nativeQuery = true)
-    List<BookingAppointmentDto> GetListByJoin();
+                ON sv.id = bk.service_id """, nativeQuery = true)
+    List<BookingAppointmentListDto> GetListByJoin();
 }

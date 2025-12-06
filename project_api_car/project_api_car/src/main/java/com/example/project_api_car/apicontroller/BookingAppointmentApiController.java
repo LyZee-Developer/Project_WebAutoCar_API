@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class BookingAppointmentApiController {
     private final BookingAppointmentController bookingAppointmentController;
+
     @PostMapping(BookingAppointmentHelper.URL.List)
     public ResponseEntity<?> List(@RequestBody BookingAppointmentFilterDataModel filer){
         var result = bookingAppointmentController.List(filer);

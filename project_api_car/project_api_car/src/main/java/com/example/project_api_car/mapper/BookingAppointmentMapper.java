@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentDataModel;
 import com.example.project_api_car.dto.BookingAppointmentDto;
+import com.example.project_api_car.dto.BookingAppointmentListDto;
 import com.example.project_api_car.entity.DB_BOOKING_APPOINTMENT;
 import com.example.project_api_car.helper.GlobalHelper;
 
@@ -31,16 +32,37 @@ public class BookingAppointmentMapper {
         data.setEmail(model.getEMAIL());
         data.setCarId(model.getCAR_ID());
         data.setPhone(model.getPHONE());
-        data.setYear(model.getYEAR());
+        data.setYears(model.getYEAR());
         data.setServiceId(model.getSERVICE_ID());
         data.setIsComplete(model.getIS_COMPLETE());
         data.setProblem(model.getPROBLEM());
-        data.setRecordCount(recordCount);
+        // data.setRecordCount(recordCount);
         data.setCreatedBy(model.getCREATED_BY());
         data.setCreatedDate(model.getCREATED_DATE());
-        data.setDatabase(model.getDB_CODE());
         data.setUpdatedBy(model.getUPDATED_BY());
         data.setUpdatedDate(model.getUPDATED_DATE());
+        return data;
+    }
+    public  static BookingAppointmentDto MaptoList(BookingAppointmentListDto model,int recordCount){
+        var data = new BookingAppointmentDto();
+        data.setId(model.getId());
+        data.setFullname(model.getFullname());
+        data.setEmail(model.getEmail());
+        data.setCarId(model.getCarId());
+        data.setPhone(model.getPhone());
+        data.setYears(model.getYears());
+        data.setCarEnglishName(model.getCarEnglishName());
+        data.setCarName(model.getCarName());
+        data.setServiceId(model.getServiceId());
+        data.setServiceEnglishName(model.getServiceEnglishName());
+        data.setServiceName(model.getServiceName());
+        data.setIsComplete(model.getIsComplete());
+        data.setProblem(model.getProblem());
+        data.setRecordCount(recordCount);
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

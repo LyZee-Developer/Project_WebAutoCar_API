@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentDataModel;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentFilterDataModel;
 import com.example.project_api_car.dto.BookingAppointmentDto;
+import com.example.project_api_car.dto.BookingAppointmentListDto;
 import com.example.project_api_car.helper.GlobalHelper;
 import com.example.project_api_car.mapper.BookingAppointmentMapper;
 import com.example.project_api_car.repository.BookingAppointmentRepository;
 import com.example.project_api_car.service.BookingAppointmentService;
-import com.example.project_api_car.specification.BookingAppointmentSpec;
 
 import lombok.AllArgsConstructor;
 @AllArgsConstructor
@@ -22,19 +22,19 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
     private final BookingAppointmentRepository  bookingAppointmentRepository;
     @Override
     public List<BookingAppointmentDto> List(BookingAppointmentFilterDataModel filter){
-        var list = bookingAppointmentRepository.findAll(BookingAppointmentSpec.Search(filter.getSearch()).and(BookingAppointmentSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
-        // var list = bookingAppointmentRepository.GetListByJoin();
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        // var list = bookingAppointmentRepository.findAll(BookingAppointmentSpec.Search(filter.getSearch()).and(BookingAppointmentSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
+        var list = bookingAppointmentRepository.GetListByJoin();
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
          if (filter.getIsComplete() != null) {
                 list = list.stream()
-                        .filter(s -> s.getIS_COMPLETE().equals(filter.getIsComplete()))
+                        .filter(s -> s.getIsComplete().equals(filter.getIsComplete()))
                         .collect(Collectors.toList());
         }
         var total = list.size();
         if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
             list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
         }
-        return list.stream().map(s->BookingAppointmentMapper.MaptoDto(s,total)).collect(Collectors.toList());
+        return list.stream().map(s->BookingAppointmentMapper.MaptoList(s, total)).collect(Collectors.toList());
     }
 
     @Override
