@@ -7,7 +7,6 @@ import lombok.Setter;
 @Getter
 public class UploadDto {
     private String Filename;
-    private String PathFolder;
     private Long Size;
     private String Type;
     private String PathFilename;
