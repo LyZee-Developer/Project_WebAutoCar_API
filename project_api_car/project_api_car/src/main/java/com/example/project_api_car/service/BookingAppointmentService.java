@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentDataModel;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentFilterDataModel;
 import com.example.project_api_car.dto.BookingAppointmentDto;
-import com.example.project_api_car.dto.BookingAppointmentListDto;
 
 @Service
 public interface BookingAppointmentService {

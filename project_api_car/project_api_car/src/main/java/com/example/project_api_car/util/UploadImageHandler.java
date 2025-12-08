@@ -5,11 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Base64;
 
 import org.hibernate.cfg.Environment;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.project_api_car.config.PortReader;
+import com.example.project_api_car.data_model.upload.UploadDataModel;
 import com.example.project_api_car.dto.UploadDto;
 import com.example.project_api_car.helper.GlobalHelper;
 
@@ -51,7 +53,33 @@ public class UploadImageHandler {
             throw new RuntimeException("Failed to upload file: " + e.getMessage());
         }
     }
-    
+
+    public UploadDto Upload(UploadDataModel model) {
+        try {
+            var dto = new UploadDto();
+            byte[] fileBytes = Base64.getDecoder().decode(model.getBase64Text());
+            var folderPath = GlobalHelper.Path.upload + "\\" + this.FolderName;
+            // Create folder if not exists
+            Path uploadPath = Paths.get(folderPath);
+            if (!Files.exists(uploadPath))
+                Files.createDirectories(uploadPath);
+            // Create storage path
+            String fileName = System.currentTimeMillis() + "_" + model.getName().replace(" ", "_")+"."+model.getTypeImage();
+            Path filePath = uploadPath.resolve(fileName);
+            // Save file
+            Files.write(filePath, fileBytes);
+            dto.setFilename(fileName);
+            dto.setHostName("localhost:8989");
+            dto.setPathFilename(this.folderUpload+"/"+fileName);
+            dto.setType(model.getTypeImage());
+            dto.setSize(model.getSize());
+            return dto;
+
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to upload file: " + e.getMessage());
+        }
+    }
+
     public Boolean DeleteImage(String filename){
         try {
              var folderPath = GlobalHelper.Path.upload + "\\" + this.FolderName;

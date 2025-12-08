@@ -11,6 +11,6 @@ public class ImageDto {
     private String Type;
     private String PathImage;
     private String TypeImage;
-    private String Size;
+    private Long Size;
     private String Name;
 }

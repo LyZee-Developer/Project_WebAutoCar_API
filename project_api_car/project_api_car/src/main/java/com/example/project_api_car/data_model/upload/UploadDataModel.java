@@ -12,6 +12,7 @@ public class UploadDataModel {
     private String PathImage;
     private String TypeImage;
     private String HostImage;
-    private String Size;
+    private Long Size;
     private String Name;
+    private String Base64Text;
 }

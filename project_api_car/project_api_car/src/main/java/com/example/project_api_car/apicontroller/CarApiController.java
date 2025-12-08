@@ -31,7 +31,7 @@ public class CarApiController {
     @PostMapping(CarHelper.URL.Create)
     public ResponseEntity<?> Create(@Valid @RequestBody CarDataModel model){
         ResponseEntity<?> result = carController.Create(model);
-        return new ResponseEntity<>(result.getBody(),result.getStatusCode());   
+        return new ResponseEntity<>(result.getBody(),result.getStatusCode());
     }
 
     @PostMapping(CarHelper.URL.Update)

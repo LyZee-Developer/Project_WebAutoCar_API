@@ -24,7 +24,7 @@ public class DB_IMAGE {
     @Column(nullable=false)
     private String TYPE_IMG;
      @Column(nullable=false)
-    private String SIZE_IMG;
+    private Long SIZE_IMG;
      @Column(nullable=false)
     private String NAME_IMG;
 
