@@ -9,4 +9,8 @@ public class GlobalHelper {
         public final String Success = "Success";
         public final String Fail = "Fail";
     }
+    public static class Path {
+        public final static String upload = "E:\\Project Client\\Project_WebAutoCar\\project_api_car\\project_api_car\\src\\main\\resources\\static\\upload";
+    }
+   
 }

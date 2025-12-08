@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CarApiController {
     private final CarController carController;
-    
+     
     @PostMapping(CarHelper.URL.List)
     public ResponseEntity<?> List(@RequestBody CarFilterDataModel filter){
         ResponseEntity<?> result = carController.List(filter);
@@ -45,4 +45,6 @@ public class CarApiController {
         var result = carController.Delete(Id);
         return new ResponseEntity<>(result.getBody(),result.getStatusCode());   
     }
+    
+   
 }
