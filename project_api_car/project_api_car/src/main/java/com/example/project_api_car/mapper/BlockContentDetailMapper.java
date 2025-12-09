@@ -22,7 +22,7 @@ public class BlockContentDetailMapper {
         data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         return data;
     }
-    public  static BlockContentDetailDto MaptoDto(DB_BLOCK_CONTENT_DEL model,int recordCount){
+    public  static BlockContentDetailDto MaptoDto(DB_BLOCK_CONTENT_DEL model,int recordCount,String PathImage){
         var data = new BlockContentDetailDto();
         data.setId(model.getId());
         data.setTitle(model.getTitle());
@@ -30,6 +30,7 @@ public class BlockContentDetailMapper {
         data.setDescription(model.getDescription());
         data.setDescriptionEnglish(model.getDescriptionEnglish());
         data.setStatus(model.getStatus());
+        data.setPathImage(PathImage);
         data.setCreatedBy(model.getCreatedBy());
         data.setCreatedDate(model.getCreatedDate());
         data.setRecordCount(recordCount);

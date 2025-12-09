@@ -11,6 +11,7 @@ import com.example.project_api_car.data_model.block_content_detail.BlockContentD
 import com.example.project_api_car.helper.BlockContentDetailHelper;
 import com.example.project_api_car.implement_service.BlockContentDetailImplement;
 import com.example.project_api_car.repository.BlockContentDetailRepository;
+import com.example.project_api_car.repository.BlockContentRepository;
 import com.example.project_api_car.security.ApiResponseHandler;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 public  class BlockContentDetailController {
     private final BlockContentDetailImplement blockContentDetailImplement;
     private final BlockContentDetailRepository blockContentDetailRepository;
+    private final BlockContentRepository blockContentRepository;
     
     public  ResponseEntity<?> List(BlockContentDetailFilterDataModel filter){
         try {
@@ -32,7 +34,8 @@ public  class BlockContentDetailController {
 
     public  ResponseEntity<?> Create(BlockContentDetailDataModel model){
         try {
-          
+            var find = blockContentRepository.findById(model.getBlockContentId());
+            if(find.isEmpty()) return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Block content was not found!"),HttpStatus.BAD_REQUEST);
             var result = blockContentDetailImplement.Create(model);
             return ResponseEntity.ok(result);
         } catch (Exception e) {

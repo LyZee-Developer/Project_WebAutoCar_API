@@ -9,6 +9,6 @@ public class BlockContentDetailDto extends IBaseDto{
     private String TitleEnglish;
     private String Description;
     private String DescriptionEnglish;
-    private String Type;
+    private String PathImage;
     private Boolean Status;
 }

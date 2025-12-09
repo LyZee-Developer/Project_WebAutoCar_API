@@ -4,6 +4,9 @@ package com.example.project_api_car.helper;
 import com.example.project_api_car.security.ApiResponseHandler;
 
 public class BlockContentDetailHelper {
+    public static class FolderName {
+        public final static String icon="ICON";
+    }
     public static class URL {
         public final static String List="api/block_content_detail/list";
         public final static String Create="api/block_content_detail/create";

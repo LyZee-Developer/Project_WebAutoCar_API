@@ -1,6 +1,7 @@
 package com.example.project_api_car.data_model.block_content_detail;
 
 import com.example.project_api_car.data_model.IBaseDataModel;
+import com.example.project_api_car.data_model.upload.UploadDataModel;
 
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -18,6 +19,6 @@ public class BlockContentDetailDataModel extends  IBaseDataModel{
     private String SubTitle;
     private String SubTitleEnglish;
     private String DescriptionEnglish;
-    private String Type;
     private Boolean Status;
+    private UploadDataModel upload;
 }
