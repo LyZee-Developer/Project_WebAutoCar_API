@@ -16,6 +16,7 @@ public class PortfolioMapper {
     public  static DB_PORTFOLIO MaptoEntity(PortfolioDataModel model){
         var data = new DB_PORTFOLIO();
         data.setCreatedBy(GlobalHelper.Str.ADMIN);
+        data.setStatus(model.getStatus());
         data.setCreatedDate(new Date());
         data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         return data;

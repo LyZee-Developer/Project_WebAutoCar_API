@@ -12,4 +12,5 @@ import lombok.Setter;
 @Setter
 public class PortfolioDataModel extends  IBaseDataModel{
     private List<UploadDataModel> uploads;
+    private Boolean status;
 }

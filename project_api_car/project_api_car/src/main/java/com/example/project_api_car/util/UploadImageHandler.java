@@ -10,6 +10,7 @@ import java.util.Base64;
 import java.util.List;
 
 import org.hibernate.cfg.Environment;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.project_api_car.config.PortReader;
@@ -31,6 +32,7 @@ public class UploadImageHandler {
         this.FolderName = FolderName.toLowerCase();
         this.folderUpload = "upload/"+this.FolderName;
     }
+    @Async
     public UploadDto Upload(MultipartFile file) {
         try {
             var dto = new UploadDto();
@@ -55,7 +57,7 @@ public class UploadImageHandler {
             throw new RuntimeException("Failed to upload file: " + e.getMessage());
         }
     }
-
+    @Async
     public UploadDto Upload(UploadDataModel model) {
         try {
             var dto = new UploadDto();
@@ -81,6 +83,7 @@ public class UploadImageHandler {
             throw new RuntimeException("Failed to upload file: " + e.getMessage());
         }
     }
+    @Async
     public List<UploadDto> Upload(List<UploadDataModel> model) {
         try {
             var multiDto = new ArrayList<UploadDto>();

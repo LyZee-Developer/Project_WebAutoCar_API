@@ -30,6 +30,7 @@ public  class PortfolioController {
 
     public  ResponseEntity<?> Create(PortfolioDataModel model){
         try {
+            if(model.getUploads().isEmpty() ) return new ApiResponseHandler().SetDetail("uploads is required!",HttpStatus.BAD_REQUEST);
             var result = portfolioImplement.Create(model);
             return ResponseEntity.ok(result);
         } catch (Exception e) {

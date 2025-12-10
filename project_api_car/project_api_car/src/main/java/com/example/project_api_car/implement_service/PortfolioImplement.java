@@ -62,12 +62,14 @@ public class PortfolioImplement implements  PortfolioService {
     public  PortfolioDto  Create(PortfolioDataModel model){
         var mapData = PortfolioMapper.MaptoEntity(model);
         var data = portfolioRepository.save(mapData);
-        var image = new DB_IMAGE();
+        
         var listImages = new ArrayList<ImageDto>();
+      
         if(model.getUploads()!=null){
             for (UploadDataModel elm : model.getUploads()) {
                 var upload = new UploadImageHandler(PortfolioHelper.FolderName.Portfolio.toLowerCase());
                 var dto = upload.Upload(elm);
+                var image = new DB_IMAGE();
                 image.setHostImage(dto.getHostName());
                 image.setNameImage(dto.getFilename());
                 image.setSizeImage(dto.getSize());
