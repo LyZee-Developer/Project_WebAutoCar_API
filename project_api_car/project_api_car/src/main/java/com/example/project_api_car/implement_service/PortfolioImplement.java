@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Service;
 
 import com.example.project_api_car.data_model.portfolio.PortfolioDataModel;
@@ -50,6 +51,7 @@ public class PortfolioImplement implements  PortfolioService {
                     img.setPathImage(image.getPathImage());
                     img.setTypeImage(image.getTypeImage());
                     img.setSize(image.getSizeImage());
+                    img.setHostUrl("http://localhost:8989");
                     img.setName(image.getNameImage());
                     pathImage.add(img);
                 }
