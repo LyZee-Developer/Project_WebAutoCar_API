@@ -11,6 +11,9 @@ public class OwnerInfoDto extends IBaseDto{
     private String Phone1;
     private String Email;
     private String Description;
+    private String SubDescription;
+    private String SubDescriptionEnglish;
+    private String DescriptionEnglish;
     private String FaceboolURL;
     private String InURL;
     private String InstagramURL;

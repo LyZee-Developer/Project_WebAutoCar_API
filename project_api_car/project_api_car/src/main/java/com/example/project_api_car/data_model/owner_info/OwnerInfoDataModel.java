@@ -20,7 +20,10 @@ public class OwnerInfoDataModel extends  IBaseDataModel{
     @Size(max = 15, message = "Phone1 cannot exceed 15 characters")
     private String Phone1;
     private String Email;
+    private String SubDescription;
+    private String SubDescriptionEnglish;
     private String Description;
+    private String DescriptionEnglish;
     private String FacebookURL;
     private String InstagramURL;
     private String InURL;

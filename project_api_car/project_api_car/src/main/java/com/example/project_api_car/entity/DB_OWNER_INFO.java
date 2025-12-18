@@ -27,7 +27,12 @@ public class DB_OWNER_INFO {
     private String PHONE1;
     @Column(length=255)
     private String EMAIL;
+    private String SUB_DESCRIPTION;
+    private String SUB_DESCRIPTION_EN;
+    @Column(length=1000)
     private String DESCRIPTION;
+    @Column(length=1000)
+    private String DESCRIPTION_EN;
     private String FACEBOOK_URL;
     private String IN_URL;
     private String INSTAGRAM_URL;

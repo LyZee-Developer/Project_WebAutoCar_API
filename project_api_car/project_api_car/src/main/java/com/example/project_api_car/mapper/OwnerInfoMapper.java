@@ -17,6 +17,9 @@ public class OwnerInfoMapper {
         data.setPHONE(model.getPhone());
         data.setPHONE1(model.getPhone1());
         data.setDESCRIPTION(model.getDescription());
+        data.setDESCRIPTION_EN(model.getDescriptionEnglish());
+        data.setSUB_DESCRIPTION_EN(model.getSubDescriptionEnglish());
+        data.setSUB_DESCRIPTION(model.getSubDescription());
         data.setFACEBOOK_URL(model.getFacebookURL());
         data.setIN_URL(model.getInURL());
         data.setINSTAGRAM_URL(model.getInstagramURL());
@@ -39,6 +42,9 @@ public class OwnerInfoMapper {
         data.setPhone1(model.getPHONE1());
         data.setFaceboolURL(model.getFACEBOOK_URL());
         data.setDescription(model.getDESCRIPTION());
+        data.setDescriptionEnglish(model.getDESCRIPTION_EN());
+        data.setSubDescription(model.getSUB_DESCRIPTION());
+        data.setSubDescriptionEnglish(model.getSUB_DESCRIPTION_EN());
         data.setInstagramURL(model.getINSTAGRAM_URL());
         data.setPathImage(pathImage);
         data.setInURL(model.getIN_URL());

@@ -41,7 +41,7 @@ public class PartnerSupportImplement implements  PartnerSupportService {
         return list.stream().map(s->{
             var pathImage = "";
             var img = imageRepository.findByRefIdAndType(s.getID(), PartnerSupportHelper.FolderName.PartnerSupport);
-            if(img!=null) pathImage = img.getHostImage()+"/"+img.getPathImage();
+            if(img!=null) pathImage = img.getPathImage();
             return PartnerSupportMapper.MaptoDto(s,totalRecord,pathImage);
         }).collect(Collectors.toList());
     }

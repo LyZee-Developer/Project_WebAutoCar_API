@@ -78,6 +78,9 @@ public class OwnerInfoImplement implements  OwnerInfoService {
         data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
         data.setEMAIL(model.getEmail());
         data.setPHONE(model.getPhone());
+        data.setSUB_DESCRIPTION(model.getSubDescription());
+        data.setSUB_DESCRIPTION_EN(model.getSubDescriptionEnglish());
+        data.setDESCRIPTION_EN(model.getDescriptionEnglish());
         data.setPHONE1(model.getPhone1());
         data.setDESCRIPTION(model.getDescription());
         data.setFACEBOOK_URL(model.getFacebookURL());

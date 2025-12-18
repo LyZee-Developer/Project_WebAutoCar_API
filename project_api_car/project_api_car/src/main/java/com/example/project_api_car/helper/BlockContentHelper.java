@@ -14,7 +14,7 @@ public class BlockContentHelper {
         public final static String Delete="api/block_content/delete";
     }
      public static class Type{
-        public final static List<String> Type = Arrays.asList("Header", "Footer","Body","Service");
+        public final static List<String> Type = Arrays.asList("Header", "Footer","Body","Service","AboutUs");
     }
     public static class Message{
         public static final ApiResponseHandler NotFound = new ApiResponseHandler().SetDetail("Block content not found!");
