@@ -9,13 +9,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AuthAccessDataModel extends  IBaseDataModel{
-    public Long Id;
+    public Long id;
     @Size(max = 1, message = "Type cannot exceed 1 characters")
-    private String Type; //A(Admin) || O(Other)
-    private Long UserId;
+    private String type; //A(Admin) || O(Other)
+    private Long userId;
     @Size(max = 30, message = "Username cannot exceed 30 characters")
-    private String UserName;
+    private String userName;
     @Size(max = 500, message = "Password cannot exceed 500 characters")
-    private String Password;
-    private Boolean Status;
+    private String password;
+    private Boolean status;
 }

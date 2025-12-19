@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AuthAccessFilterDataModel extends IBaseFilterDataModel  {
-    Boolean Status;
+    Boolean status;
 }

@@ -9,10 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SectionDataModel extends  IBaseDataModel{
-    public Long Id;
+    private Long id;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    public String Name;
+    private String name;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    public String EnglishName;
-    public Boolean Status;
+    private String englishName;
+    private Boolean status;
 }

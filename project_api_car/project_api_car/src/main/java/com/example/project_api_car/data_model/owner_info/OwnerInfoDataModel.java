@@ -10,26 +10,26 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OwnerInfoDataModel extends  IBaseDataModel{
-    public Long Id;
+    public Long id;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    public String Name;
+    public String name;
     @Size(max = 50, message = "EnglishName cannot exceed 50 characters")
-    public String EnglishName;
+    public String englishName;
     @Size(max = 15, message = "Phone cannot exceed 15 characters")
-    private String Phone;
+    private String phone;
     @Size(max = 15, message = "Phone1 cannot exceed 15 characters")
-    private String Phone1;
-    private String Email;
-    private String SubDescription;
-    private String SubDescriptionEnglish;
-    private String Description;
-    private String DescriptionEnglish;
-    private String FacebookURL;
-    private String InstagramURL;
-    private String InURL;
-    private String YoutubeURL;
-    private String TelegramURL;
+    private String phone1;
+    private String email;
+    private String subDescription;
+    private String subDescriptionEnglish;
+    private String description;
+    private String descriptionEnglish;
+    private String facebookUrl;
+    private String instagramUrl;
+    private String inUrl;
+    private String youtubeUrl;
+    private String telegramUrl;
     @Size(max = 255, message = "WorkingInfo cannot exceed 255 characters")
-    private String WorkingInfo;
+    private String workingInfo;
     private UploadDataModel upload;
 }

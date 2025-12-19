@@ -9,17 +9,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BookingAppointmentDataModel extends  IBaseDataModel{
-    public Long Id;
+    public Long id;
     @Size(max = 50, message = "Full Name cannot exceed 50 characters")
-    private String Fullname;
+    private String fullName;
     @Size(max = 255, message = "Email cannot exceed 255 characters")
-    private String Email;
+    private String email;
     @Size(max = 20, message = "Phone cannot exceed 20 characters")
-    private String Phone;
+    private String phone;
     @Size(max = 1000, message = "Problem cannot exceed 1000 characters")
-    private String Problem;
-    private Long ServiceId;
-    private Long CarId;
-    private String Year;
-    private Boolean IsComplete;
+    private String problem;
+    private Long serviceId;
+    private Long carId;
+    private String year;
+    private Boolean isComplete;
 }

@@ -4,11 +4,11 @@ import lombok.Setter;
 @Setter
 @Getter
 public abstract class IBaseFilterDataModel {
-    protected Long Id;
-    protected Long Page;
-    protected Long Record;
-    protected String Database;
-    protected String Search;
-    protected String OrderBy;
-    protected String OrderDir;
+    protected Long id;
+    protected Long page;
+    protected Long record;
+    protected String database;
+    protected String search;
+    protected String orderBy;
+    protected String orderDir;
 }

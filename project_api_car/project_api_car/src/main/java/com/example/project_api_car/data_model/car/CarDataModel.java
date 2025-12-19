@@ -10,11 +10,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CarDataModel extends  IBaseDataModel{
-    public Long Id;
+    public Long id;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    public String Name;
+    public String name;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    public String EnglishName;
-    public Boolean Status;
+    public String englishName;
+    public Boolean status;
     private UploadDataModel upload;
 }

@@ -83,11 +83,11 @@ public class OwnerInfoImplement implements  OwnerInfoService {
         data.setDESCRIPTION_EN(model.getDescriptionEnglish());
         data.setPHONE1(model.getPhone1());
         data.setDESCRIPTION(model.getDescription());
-        data.setFACEBOOK_URL(model.getFacebookURL());
-        data.setIN_URL(model.getInURL());
-        data.setINSTAGRAM_URL(model.getInstagramURL());
-        data.setTELEGRAM_URL(model.getTelegramURL());
-        data.setYOUTUBE_URL(model.getYoutubeURL());
+        data.setFACEBOOK_URL(model.getFacebookUrl());
+        data.setIN_URL(model.getInUrl());
+        data.setINSTAGRAM_URL(model.getInstagramUrl());
+        data.setTELEGRAM_URL(model.getTelegramUrl());
+        data.setYOUTUBE_URL(model.getYoutubeUrl());
         data.setWORKING_INFO(model.getWorkingInfo());
         ownerInfoRepository.save(data);
         if(model.getUpload()!=null){

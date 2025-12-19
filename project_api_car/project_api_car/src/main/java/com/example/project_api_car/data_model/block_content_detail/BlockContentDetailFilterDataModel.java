@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BlockContentDetailFilterDataModel extends IBaseFilterDataModel  {
-    private Boolean Status;
-    private Long ContentBlockId;
+    private Boolean status;
+    private Long contentBlockId;
 }

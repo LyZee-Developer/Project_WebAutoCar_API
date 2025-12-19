@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UploadDataModel {
-    private Long  Id;
-    private Long RefId;
-    private String Type;
-    private String PathImage;
-    private String TypeImage;
-    private String HostImage;
-    private Long Size;
-    private String Name;
-    private String Base64Text;
+    private Long  id;
+    private Long refId;
+    private String type;
+    private String pathImage;
+    private String typeImage;
+    private String hostImage;
+    private Long size;
+    private String name;
+    private String base64Text;
 }

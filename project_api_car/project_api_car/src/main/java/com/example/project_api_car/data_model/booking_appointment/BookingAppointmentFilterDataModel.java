@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BookingAppointmentFilterDataModel extends IBaseFilterDataModel  {
-    private Boolean IsComplete;
+    private Boolean isComplete;
 }

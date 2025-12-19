@@ -12,7 +12,7 @@ import com.example.project_api_car.helper.GlobalHelper;
 public class BookingAppointmentMapper {
     public  static DB_BOOKING_APPOINTMENT MaptoEntity(BookingAppointmentDataModel model){
         var data = new DB_BOOKING_APPOINTMENT();
-        data.setFULL_NAME(model.getFullname());
+        data.setFULL_NAME(model.getFullName());
         data.setEMAIL(model.getEmail());
         data.setPHONE(model.getPhone());
         data.setPROBLEM(model.getProblem());

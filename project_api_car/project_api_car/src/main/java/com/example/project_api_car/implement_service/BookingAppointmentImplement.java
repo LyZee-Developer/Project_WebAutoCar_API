@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentDataModel;
 import com.example.project_api_car.data_model.booking_appointment.BookingAppointmentFilterDataModel;
 import com.example.project_api_car.dto.BookingAppointmentDto;
-import com.example.project_api_car.dto.BookingAppointmentListDto;
 import com.example.project_api_car.helper.GlobalHelper;
 import com.example.project_api_car.mapper.BookingAppointmentMapper;
 import com.example.project_api_car.repository.BookingAppointmentRepository;
@@ -48,7 +47,7 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
     @Override
     public BookingAppointmentDto Update(BookingAppointmentDataModel model){
         var data = bookingAppointmentRepository.findById(model.getId()).get();
-        data.setFULL_NAME(model.getFullname());
+        data.setFULL_NAME(model.getFullName());
         data.setEMAIL(model.getEmail());
         data.setPHONE(model.getPhone());
         data.setPROBLEM(model.getProblem());

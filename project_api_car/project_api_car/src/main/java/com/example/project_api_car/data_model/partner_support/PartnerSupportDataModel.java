@@ -10,11 +10,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PartnerSupportDataModel extends  IBaseDataModel{
-    private Long Id;
+    private Long id;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    private String Name;
+    private String name;
     @Size(max = 50, message = "Name cannot exceed 50 characters")
-    private String EnglishName;
-    private Boolean Status;
+    private String englishName;
+    private Boolean status;
     private UploadDataModel upload;
 }

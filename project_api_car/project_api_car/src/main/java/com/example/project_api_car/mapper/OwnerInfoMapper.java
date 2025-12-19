@@ -20,11 +20,11 @@ public class OwnerInfoMapper {
         data.setDESCRIPTION_EN(model.getDescriptionEnglish());
         data.setSUB_DESCRIPTION_EN(model.getSubDescriptionEnglish());
         data.setSUB_DESCRIPTION(model.getSubDescription());
-        data.setFACEBOOK_URL(model.getFacebookURL());
-        data.setIN_URL(model.getInURL());
-        data.setINSTAGRAM_URL(model.getInstagramURL());
-        data.setTELEGRAM_URL(model.getTelegramURL());
-        data.setYOUTUBE_URL(model.getYoutubeURL());
+        data.setFACEBOOK_URL(model.getFacebookUrl());
+        data.setIN_URL(model.getInUrl());
+        data.setINSTAGRAM_URL(model.getInstagramUrl());
+        data.setTELEGRAM_URL(model.getTelegramUrl());
+        data.setYOUTUBE_URL(model.getYoutubeUrl());
         data.setWORKING_INFO(model.getWorkingInfo());
         data.setCREATED_BY(GlobalHelper.Str.ADMIN);
         data.setCREATED_DATE(new Date());

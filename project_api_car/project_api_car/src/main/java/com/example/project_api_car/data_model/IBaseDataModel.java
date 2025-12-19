@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public abstract class IBaseDataModel {
-    protected String Username;
-    protected String Database;
-    protected Date Date;
+    protected String username;
+    protected String database;
+    protected Date date;
 }

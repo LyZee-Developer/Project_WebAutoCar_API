@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CarFilterDataModel extends IBaseFilterDataModel  {
-    private Boolean Status;
+    private Boolean status;
 }

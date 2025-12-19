@@ -10,15 +10,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BlockContentDetailDataModel extends  IBaseDataModel{
-    private Long Id;
+    private Long id;
     @Size(max = 255, message = "Name cannot exceed 255 characters")
-    private String Title;
-    private Long BlockContentId;
-    private String TitleEnglish;
-    private String Description;
-    private String SubTitle;
-    private String SubTitleEnglish;
-    private String DescriptionEnglish;
-    private Boolean Status;
+    private String title;
+    private Long blockContentId;
+    private String titleEnglish;
+    private String description;
+    private String subTitle;
+    private String subTitleEnglish;
+    private String descriptionEnglish;
+    private Boolean status;
     private UploadDataModel upload;
 }
