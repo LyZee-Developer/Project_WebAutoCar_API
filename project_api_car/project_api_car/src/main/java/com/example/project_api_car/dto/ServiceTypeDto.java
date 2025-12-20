@@ -4,8 +4,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ServiceTypeDto extends IBaseDto{
-    public Long  Id;
-    private String Name;
-    private String EnglishName;
-    private Boolean Status;
+    public Long  id;
+    private String name;
+    private String englishName;
+    private Boolean status;
 }

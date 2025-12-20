@@ -6,9 +6,9 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UploadDto {
-    private String Filename;
-    private Long Size;
-    private String Type;
-    private String PathFilename;
-    private String HostName;
+    private String filename;
+    private Long size;
+    private String type;
+    private String pathFilename;
+    private String hostName;
 }

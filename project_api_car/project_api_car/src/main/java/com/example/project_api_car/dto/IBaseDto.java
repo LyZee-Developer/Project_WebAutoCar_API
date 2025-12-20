@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 @Getter
 public abstract class IBaseDto {
-    private String CreatedBy;
-    private Date CreatedDate;
-    private String Database;
-    private String UpdatedBy;
-    private Date UpdatedDate;
-    private int RecordCount;
+    private String createdBy;
+    private Date createdDate;
+    private String database;
+    private String updatedBy;
+    private Date updatedDate;
+    private int recordCount;
 }

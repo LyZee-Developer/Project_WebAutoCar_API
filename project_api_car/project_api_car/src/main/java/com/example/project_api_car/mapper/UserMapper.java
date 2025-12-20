@@ -10,37 +10,37 @@ import com.example.project_api_car.entity.DB_USER;
 public class UserMapper {
     public  static DB_USER MaptoEntity(UserDataModel model){
         var data = new DB_USER();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setEMAIL(model.getEmail());
-        data.setPHONE(model.getPhone());
-        data.setPHONE1(model.getPhone1());
-        data.setGENDER(model.getGender());
-        data.setSTATUS(model.getStatus());
-        data.setUSER_CODE(model.getUserCode());
-        data.setCREATED_BY(model.getUsername());
-        data.setCREATED_DATE(new Date());
-        data.setDB_CODE(model.getDatabase());
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setEmail(model.getEmail());
+        data.setPhone(model.getPhone());
+        data.setPhone1(model.getPhone1());
+        data.setGender(model.getGender());
+        data.setStatus(model.getStatus());
+        data.setUserCode(model.getUserCode());
+        data.setCreatedBy(model.getUsername());
+        data.setCreatedDate(new Date());
+        data.setDbCode(model.getDatabase());
         return data;
     }
     public  static UserDto MaptoDto(DB_USER model,int recordCount,String PathImage){
         var data = new UserDto();
-        data.setId(model.getID());
-        data.setName(model.getNAME());
-        data.setEnglishName(model.getNAME_EN());
-        data.setPhone(model.getPHONE());
-        data.setPhone1(model.getPHONE1());
-        data.setStatus(model.getSTATUS());
-        data.setEmail(model.getEMAIL());
-        data.setGender(model.getGENDER());
-        data.setCode(model.getUSER_CODE());
+        data.setId(model.getId());
+        data.setName(model.getName());
+        data.setEnglishName(model.getNameEn());
+        data.setPhone(model.getPhone());
+        data.setPhone1(model.getPhone1());
+        data.setStatus(model.getStatus());
+        data.setEmail(model.getEmail());
+        data.setGender(model.getGender());
+        data.setCode(model.getUserCode());
         data.setPathImage(PathImage);
         data.setRecordCount(recordCount);
-        data.setCreatedBy(model.getCREATED_BY());
-        data.setCreatedDate(model.getCREATED_DATE());
-        data.setDatabase(model.getDB_CODE());
-        data.setUpdatedBy(model.getUPDATED_BY());
-        data.setUpdatedDate(model.getUPDATED_DATE());
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
+        data.setDatabase(model.getDbCode());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

@@ -4,13 +4,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BlockContentDto extends IBaseDto{
-    public Long  Id;
-    private String Title;
-    private String TitleEnglish;
-    private String Description;
-    private String SubTitle;
-    private String SubTitleEnglish;
-    private String DescriptionEnglish;
-    private String Type;
-    private Boolean Status;
+    public Long  id;
+    private String title;
+    private String titleEnglish;
+    private String description;
+    private String subTitle;
+    private String subTitleEnglish;
+    private String descriptionEnglish;
+    private String type;
+    private Boolean status;
 }

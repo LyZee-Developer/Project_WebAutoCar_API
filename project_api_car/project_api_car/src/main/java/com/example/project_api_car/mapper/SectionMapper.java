@@ -10,25 +10,25 @@ import com.example.project_api_car.entity.DB_SECTION;
 public class SectionMapper {
     public  static DB_SECTION MaptoEntity(SectionDataModel model){
         var data = new DB_SECTION();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setSTATUS(model.getStatus());
-        data.setCREATED_BY(model.getUsername());
-        data.setCREATED_DATE(new Date());
-        data.setDB_CODE(model.getDatabase());
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setStatus(model.getStatus());
+        data.setCreatedBy(model.getUsername());
+        data.setCreatedDate(new Date());
+        data.setDbCode(model.getDatabase());
         return data;
     }
     public  static SectionDto MaptoDto(DB_SECTION model){
         var data = new SectionDto();
-        data.setId(model.getID());
-        data.setName(model.getNAME());
-        data.setStatus(model.getSTATUS());
-        data.setEnglishName(model.getNAME_EN());
-        data.setCreatedBy(model.getCREATED_BY());
-        data.setCreatedDate(model.getCREATED_DATE());
-        data.setDatabase(model.getDB_CODE());
-        data.setUpdatedBy(model.getUPDATED_BY());
-        data.setUpdatedDate(model.getUPDATED_DATE());
+        data.setId(model.getId());
+        data.setName(model.getName());
+        data.setStatus(model.getStatus());
+        data.setEnglishName(model.getNameEn());
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
+        data.setDatabase(model.getDbCode());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

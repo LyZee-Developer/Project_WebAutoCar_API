@@ -4,9 +4,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PartnerSupportDto extends IBaseDto{
-    public Long  Id;
-    private String Name;
-    private String EnglishName;
-    private Boolean Status;
-    private String PathImage;
+    public Long  id;
+    private String name;
+    private String englishName;
+    private Boolean status;
+    private String pathImage;
 }

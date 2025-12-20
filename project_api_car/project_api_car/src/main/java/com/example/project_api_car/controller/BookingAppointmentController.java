@@ -38,11 +38,14 @@ public class BookingAppointmentController {
 
     public ResponseEntity<?> Create(BookingAppointmentDataModel model) {
         try {
-            
-            if(!serviceTypeImplement.IsExistService(model.getServiceId())) {
-                return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Service was not found!"),
-                    HttpStatus.BAD_REQUEST);
-            } 
+            String[] splitServiceId = model.getServiceId().split(",");
+            for (String service : splitServiceId) {
+                if(!serviceTypeImplement.IsExistService(Long.parseLong(service))) {
+                    return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Service was not found!"),
+                        HttpStatus.BAD_REQUEST);
+                } 
+            }
+           
             if(!carImplement.IsExistedCar(model.getCarId())) {
                 return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Car was not found!"),
                     HttpStatus.BAD_REQUEST);
@@ -61,11 +64,13 @@ public class BookingAppointmentController {
                 return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Id is required!"),
                         HttpStatus.BAD_REQUEST);
             }
-            
-            if(!serviceTypeImplement.IsExistService(model.getServiceId())) {
-                return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Service was not found!"),
-                    HttpStatus.BAD_REQUEST);
-            } 
+            String[] splitServiceId = model.getServiceId().split(",");
+            for (String service : splitServiceId) {
+                if(!serviceTypeImplement.IsExistService(Long.parseLong(service))) {
+                    return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Service was not found!"),
+                        HttpStatus.BAD_REQUEST);
+                } 
+            }
             if(!carImplement.IsExistedCar(model.getCarId())) {
                 return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Car was not found!"),
                     HttpStatus.BAD_REQUEST);

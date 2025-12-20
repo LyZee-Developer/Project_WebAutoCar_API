@@ -11,27 +11,27 @@ import com.example.project_api_car.helper.GlobalHelper;
 public class PartnerSupportMapper {
     public  static DB_PARTNER_SUPPORT MaptoEntity(PartnerSupportDataModel model){
         var data = new DB_PARTNER_SUPPORT();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setSTATUS(model.getStatus());
-        data.setCREATED_BY(GlobalHelper.Str.ADMIN);
-        data.setCREATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setStatus(model.getStatus());
+        data.setCreatedBy(GlobalHelper.Str.ADMIN);
+        data.setCreatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         return data;
     }
     public  static PartnerSupportDto MaptoDto(DB_PARTNER_SUPPORT model,int recordCount,String pathImage){
         var data = new PartnerSupportDto();
-        data.setId(model.getID());
-        data.setName(model.getNAME());
-        data.setStatus(model.getSTATUS());
-        data.setEnglishName(model.getNAME_EN());
-        data.setCreatedBy(model.getCREATED_BY());
-        data.setCreatedDate(model.getCREATED_DATE());
+        data.setId(model.getId());
+        data.setName(model.getName());
+        data.setStatus(model.getStatus());
+        data.setEnglishName(model.getNameEn());
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
         data.setPathImage(pathImage);
         data.setRecordCount(recordCount);
-        data.setDatabase(model.getDB_CODE());
-        data.setUpdatedBy(model.getUPDATED_BY());
-        data.setUpdatedDate(model.getUPDATED_DATE());
+        data.setDatabase(model.getDbCode());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

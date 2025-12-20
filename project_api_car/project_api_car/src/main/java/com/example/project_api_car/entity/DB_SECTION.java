@@ -15,21 +15,21 @@ import lombok.Setter;
 public class DB_SECTION {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long  ID;
+    public Long  id;
     @Column(length=50,name="NAME")
-    private String NAME;
+    private String name;
     @Column(length=50,name="NAME_EN")
-    private String NAME_EN;
+    private String nameEn;
     @Column(nullable = false)
-    private Boolean STATUS;
+    private Boolean status;
     @Column(length=100,name="CREATED_BY",nullable = false)
-    private String CREATED_BY;
+    private String createdBy;
     @Column(name="CREATED_DATE",nullable = false )
-    private Date CREATED_DATE;
+    private Date createdDate;
     @Column(length=50,name="DB_CODE")
-    private String DB_CODE;
+    private String dbCode;
      @Column(name="UPDATED_BY",nullable = true )
-    private String UPDATED_BY;
+    private String updatedBy;
     @Column(name="UPDATED_DATE",nullable = true )
-    private Date UPDATED_DATE;
+    private Date updatedDate;
 }

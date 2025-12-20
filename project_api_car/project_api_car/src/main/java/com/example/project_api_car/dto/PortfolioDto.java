@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PortfolioDto extends IBaseDto{
-    public Long  Id;
-    private List<ImageDto> Images;
+    public Long  id;
+    private List<ImageDto> images;
 }

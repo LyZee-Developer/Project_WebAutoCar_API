@@ -50,6 +50,7 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
         data.setFULL_NAME(model.getFullName());
         data.setEMAIL(model.getEmail());
         data.setPHONE(model.getPhone());
+        data.setPHONE1(model.getPhone());
         data.setPROBLEM(model.getProblem());
         data.setSERVICE_ID(model.getServiceId());
         data.setIS_COMPLETE(model.getIsComplete());

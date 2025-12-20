@@ -4,9 +4,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CarDto extends IBaseDto{
-    public Long  Id;
-    private String Name;
-    private String EnglishName;
-    private String PathImage;
-    private Boolean Status;
+    public Long  id;
+    private String name;
+    private String englishName;
+    private String pathImage;
+    private Boolean status;
 }

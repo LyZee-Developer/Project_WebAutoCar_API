@@ -13,27 +13,27 @@ import lombok.AllArgsConstructor;
 public class CarMapper {
     public  static DB_CAR MaptoEntity(CarDataModel model){
         var data = new DB_CAR();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setSTATUS(model.getStatus());
-        data.setCREATED_BY(GlobalHelper.Str.ADMIN);
-        data.setCREATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setStatus(model.getStatus());
+        data.setCreatedBy(GlobalHelper.Str.ADMIN);
+        data.setCreatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         return data;
     }
     public  static CarDto MaptoDto(DB_CAR model,int recordCount,String PathImage){
         var data = new CarDto();
-        data.setId(model.getID());
-        data.setName(model.getNAME());
-        data.setStatus(model.getSTATUS());
-        data.setEnglishName(model.getNAME_EN());
-        data.setCreatedBy(model.getCREATED_BY());
-        data.setCreatedDate(model.getCREATED_DATE());
+        data.setId(model.getId());
+        data.setName(model.getName());
+        data.setStatus(model.getStatus());
+        data.setEnglishName(model.getNameEn());
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
         data.setRecordCount(recordCount);
         data.setPathImage(PathImage);
-        data.setDatabase(model.getDB_CODE());
-        data.setUpdatedBy(model.getUPDATED_BY());
-        data.setUpdatedDate(model.getUPDATED_DATE());
+        data.setDatabase(model.getDbCode());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

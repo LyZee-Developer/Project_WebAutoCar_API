@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SectionDto {
-    public Long  Id;
-    private String Name;
-    private String EnglishName;
-    private Boolean Status;
-    private String CreatedBy;
-    private Date CreatedDate;
-    private String Database;
-    private String UpdatedBy;
-    private Date UpdatedDate;
+    public Long  id;
+    private String name;
+    private String englishName;
+    private Boolean status;
+    private String createdBy;
+    private Date createdDate;
+    private String database;
+    private String updatedBy;
+    private Date updatedDate;
 }

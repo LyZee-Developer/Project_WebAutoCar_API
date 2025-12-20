@@ -16,38 +16,38 @@ import lombok.Setter;
 public class DB_OWNER_INFO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
     @Column(length=50,nullable=false)
-    private String NAME;
+    private String name;
     @Column(length=50,nullable=false)
-    private String NAME_EN;
+    private String nameEn;
     @Column(length=15,nullable=false)
-    private String PHONE;
+    private String phone;
     @Column(length=15,nullable=true)
-    private String PHONE1;
+    private String phone1;
     @Column(length=255)
-    private String EMAIL;
-    private String SUB_DESCRIPTION;
-    private String SUB_DESCRIPTION_EN;
+    private String email;
+    private String subDescription;
+    private String subDescriptionEnglish;
     @Column(length=1000)
-    private String DESCRIPTION;
+    private String description;
     @Column(length=1000)
-    private String DESCRIPTION_EN;
-    private String FACEBOOK_URL;
-    private String IN_URL;
-    private String INSTAGRAM_URL;
-    private String YOUTUBE_URL;
-    private String TELEGRAM_URL;
-    private String WORKING_INFO;
+    private String descriptionEnglish;
+    private String facebookUrl;
+    private String inUrl;
+    private String instagramUrl;
+    private String youtubeUrl;
+    private String telegramUrl;
+    private String workingInfo;
     @Column(length=100,name="CREATED_BY",nullable = false)
-    private String CREATED_BY;
+    private String createdBy;
     @Column(name="CREATED_DATE",nullable = false )
-    private Date CREATED_DATE;
+    private Date createdDate;
     @Column(length=50,name="DB_CODE",nullable = false)
-    private String DB_CODE;
+    private String dbCode;
      @Column(name="UPDATED_BY",nullable = true )
-    private String UPDATED_BY;
+    private String updatedBy;
     @Column(name="UPDATED_DATE",nullable = true )
-    private Date UPDATED_DATE;
+    private Date updatedDate;
 
 }

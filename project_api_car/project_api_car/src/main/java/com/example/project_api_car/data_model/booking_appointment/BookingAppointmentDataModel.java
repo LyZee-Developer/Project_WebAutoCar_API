@@ -16,9 +16,11 @@ public class BookingAppointmentDataModel extends  IBaseDataModel{
     private String email;
     @Size(max = 20, message = "Phone cannot exceed 20 characters")
     private String phone;
+    @Size(max = 20)
+    private String phone1;
     @Size(max = 1000, message = "Problem cannot exceed 1000 characters")
     private String problem;
-    private Long serviceId;
+    private String serviceId;
     private Long carId;
     private String year;
     private Boolean isComplete;

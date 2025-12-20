@@ -4,14 +4,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto extends IBaseDto {
-    public Long  Id;
-    private String Name;
-    private String EnglishName;
-    private String Email;
-    private String Phone;
-    private String Code;
-    private Boolean Status;
-    private String Phone1;
-    private Boolean Gender;
-    private String PathImage;
+    public Long  id;
+    private String name;
+    private String englishName;
+    private String email;
+    private String phone;
+    private String code;
+    private Boolean status;
+    private String phone1;
+    private Boolean gender;
+    private String pathImage;
 }

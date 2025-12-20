@@ -12,41 +12,24 @@ import lombok.Setter;
 @NoArgsConstructor
 @Data
 public class BookingAppointmentDto {
-    private Long Id;
-    private String Fullname;
-    private String Email;
-    private String  Phone;
-    private Long ServiceId;
-    private String ServiceName;
-    private String ServiceEnglishName;
-    private String  Problem;
-    private Long CarId;
-    private String  CarName;
-    private String  CarEnglishName;
-    private String  Years;
-    private int  RecordCount;
-    private Boolean  IsComplete;
-    private String  CreatedBy;
-    private String  UpdatedBy;
-    private Date  CreatedDate;
-    private Date  UpdatedDate;
-
-    // private Long Id;
-    // private String Fullname;
-    // private String Email;
-    // private String Phone;
-    // private Long ServiceId;
-    // private String ServiceName;
-    // private String ServiceEnglishName;
-    // private String Problem;
-    // private Long CarId;
-    // private String CarName;
-    // private String CarEnglishName;
-    // private String Years;
-    // private Boolean IsComplete;
-    // private String CreatedBy;
-    // private String UpdatedBy;
-    // private Date CreatedDate;
-    // private Date UpdatedDate;
+    private Long id;
+    private String fullName;
+    private String email;
+    private String  phone;
+    private String  phone1;
+    private String serviceId;
+    private String serviceName;
+    private String serviceEnglishName;
+    private String  problem;
+    private Long carId;
+    private String  carName;
+    private String  carEnglishName;
+    private String  years;
+    private int  recordCount;
+    private Boolean  isComplete;
+    private String  createdBy;
+    private String  updatedBy;
+    private Date  createdDate;
+    private Date  updatedDate;
 }
 

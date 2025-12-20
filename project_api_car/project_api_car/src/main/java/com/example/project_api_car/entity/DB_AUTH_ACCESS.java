@@ -16,25 +16,25 @@ import lombok.Setter;
 public class DB_AUTH_ACCESS {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
     @Column(length=1,nullable = false)
-    private String TYPE; //A(Admin) || O(Other)
-    private Long USER_ID;
+    private String type; //A(Admin) || O(Other)
+    private Long userId;
     @Column(length=30,nullable = false,unique = true)
-    private String USERNAME;
+    private String username;
     @Column(length=500,nullable = false)
-    private String PASSWORD;
+    private String password;
     @Column(nullable = false)
-    private Boolean STATUS;
+    private Boolean status;
     @Column(length=100,name="CREATED_BY",nullable = false)
-    private String CREATED_BY;
+    private String createdBy;
     @Column(name="CREATED_DATE",nullable = false )
-    private Date CREATED_DATE;
+    private Date createdDate;
     @Column(length=50,name="DB_CODE",nullable = false)
-    private String DB_CODE;
+    private String dbCode;
      @Column(name="UPDATED_BY",nullable = true )
-    private String UPDATED_BY;
+    private String updatedBy;
     @Column(name="UPDATED_DATE",nullable = true )
-    private Date UPDATED_DATE;
+    private Date updatedDate;
 
 }

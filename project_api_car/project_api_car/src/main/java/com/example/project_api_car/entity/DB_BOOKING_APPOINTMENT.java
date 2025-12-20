@@ -15,30 +15,32 @@ import lombok.Setter;
 public class DB_BOOKING_APPOINTMENT {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long ID;
+    public Long id;
     @Column(length=50)
-    private String FULL_NAME;
+    private String fullName;
     @Column(length=255)
-    private String EMAIL;
+    private String email;
     @Column(length=20,nullable=false)
-    private String PHONE;
+    private String phone;
+    @Column(length=20)
+    private String phone1;
     @Column(nullable=false)
-    private Long SERVICE_ID;
+    private String serviceId;
     @Column(length=1000,nullable=false)
-    private String PROBLEM;
+    private String problem;
     @Column(nullable=false)
-    private Long CAR_ID;
-    private String YEAR;
+    private Long carId;
+    private String year;
     @Column(nullable = false)
-    private Boolean IS_COMPLETE;
+    private Boolean isComplete;
     @Column(length=100,name="CREATED_BY",nullable = false)
-    private String CREATED_BY;
+    private String createdBy;
     @Column(name="CREATED_DATE",nullable = false )
-    private Date CREATED_DATE;
+    private Date createdDate;
     @Column(length=50,name="DB_CODE")
-    private String DB_CODE;
+    private String dbCode;
     @Column(name="UPDATED_BY",nullable = true )
-    private String UPDATED_BY;
+    private String updatedBy;
     @Column(name="UPDATED_DATE",nullable = true )
-    private Date UPDATED_DATE;
+    private Date updatedDate;
 }

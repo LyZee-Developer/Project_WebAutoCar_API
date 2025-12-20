@@ -11,30 +11,30 @@ import com.example.project_api_car.helper.GlobalHelper;
 public class AuthAccessMapper {
     public  static DB_AUTH_ACCESS MaptoEntity(AuthAccessDataModel model){
         var data = new DB_AUTH_ACCESS();
-        data.setTYPE(model.getType());
-        data.setUSER_ID(model.getUserId());
-        data.setUSERNAME(model.getUserName());
-        data.setPASSWORD(model.getPassword());
-        data.setSTATUS(model.getStatus());
-        data.setCREATED_BY(GlobalHelper.Str.ADMIN);
-        data.setCREATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
+        data.setType(model.getType());
+        data.setUserId(model.getUserId());
+        data.setUsername(model.getUserName());
+        data.setPassword(model.getPassword());
+        data.setStatus(model.getStatus());
+        data.setCreatedBy(GlobalHelper.Str.ADMIN);
+        data.setCreatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         return data;
     }
     public  static AuthAccessDto MaptoDto(DB_AUTH_ACCESS model,int recordCount){
         var data = new AuthAccessDto();
-        data.setId(model.getID());
-        data.setUserId(model.getUSER_ID());
-        data.setUsername(model.getUSERNAME());
-        data.setPassword(model.getPASSWORD());
-        data.setType(model.getTYPE());
-        data.setStatus(model.getSTATUS());
+        data.setId(model.getId());
+        data.setUserId(model.getUserId());
+        data.setUsername(model.getUsername());
+        data.setPassword(model.getPassword());
+        data.setType(model.getType());
+        data.setStatus(model.getStatus());
         data.setRecordCount(recordCount);
-        data.setCreatedBy(model.getCREATED_BY());
-        data.setCreatedDate(model.getCREATED_DATE());
-        data.setDatabase(model.getDB_CODE());
-        data.setUpdatedBy(model.getUPDATED_BY());
-        data.setUpdatedDate(model.getUPDATED_DATE());
+        data.setCreatedBy(model.getCreatedBy());
+        data.setCreatedDate(model.getCreatedDate());
+        data.setDatabase(model.getDbCode());
+        data.setUpdatedBy(model.getUpdatedBy());
+        data.setUpdatedDate(model.getUpdatedDate());
         return data;
     }
 }

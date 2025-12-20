@@ -4,10 +4,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AuthAccessDto extends IBaseDto {
-    public Long  Id;
-    private Long UserId;
-    private String Username;
-    private String Password;
-    private String Type;
-    private Boolean Status;
+    public Long  id;
+    private Long userId;
+    private String username;
+    private String password;
+    private String type;
+    private Boolean status;
 }

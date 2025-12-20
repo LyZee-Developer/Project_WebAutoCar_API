@@ -1,5 +1,4 @@
 package com.example.project_api_car.dto;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public interface BookingAppointmentListDto {
@@ -7,7 +6,8 @@ public interface BookingAppointmentListDto {
     String getFullname();
     String getEmail();
     String getPhone();
-    Long getServiceId();
+    String getPhone1();
+    String getServiceId();
     String getServiceName();
     String getServiceEnglishName();
     String getProblem();
