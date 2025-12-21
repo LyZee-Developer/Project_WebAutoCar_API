@@ -103,7 +103,7 @@ public class BookingAppointmentController {
         if (!isExisted.isPresent()) {
             return new ApiResponseHandler().SetDetail(BookingAppointmentHelper.Message.NotFound, HttpStatus.NOT_FOUND);
         }
-        if(isExisted.get().getIS_COMPLETE().booleanValue()==status){
+        if(isExisted.get().getIsComplete().booleanValue()==status){
              return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Current your status have change already!"),HttpStatus.BAD_REQUEST); 
         }
         var result = bookingAppointmentImplement.ChangeStatus(id,status);

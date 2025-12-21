@@ -47,17 +47,17 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
     @Override
     public BookingAppointmentDto Update(BookingAppointmentDataModel model){
         var data = bookingAppointmentRepository.findById(model.getId()).get();
-        data.setFULL_NAME(model.getFullName());
-        data.setEMAIL(model.getEmail());
-        data.setPHONE(model.getPhone());
-        data.setPHONE1(model.getPhone());
-        data.setPROBLEM(model.getProblem());
-        data.setSERVICE_ID(model.getServiceId());
-        data.setIS_COMPLETE(model.getIsComplete());
-        data.setYEAR(model.getYear());
-        data.setCAR_ID(model.getCarId());
-        data.setUPDATED_BY(GlobalHelper.Str.ADMIN);
-        data.setUPDATED_DATE(new Date());
+        data.setFullName(model.getFullName());
+        data.setEmail(model.getEmail());
+        data.setPhone(model.getPhone());
+        data.setPhone1(model.getPhone());
+        data.setProblem(model.getProblem());
+        data.setServiceId(model.getServiceId());
+        data.setIsComplete(model.getIsComplete());
+        data.setYear(model.getYear());
+        data.setCarId(model.getCarId());
+        data.setUpdatedBy(GlobalHelper.Str.ADMIN);
+        data.setUpdatedDate(new Date());
         bookingAppointmentRepository.save(data);
         var result = BookingAppointmentMapper.MaptoDto(data,1);
         return result;
@@ -71,7 +71,7 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
 
     @Override
     public Boolean IsExistedUserById(Long Id){
-        var users = bookingAppointmentRepository.findAll().stream().filter(s->s.getID().equals(Id)).collect(Collectors.toList());
+        var users = bookingAppointmentRepository.findAll().stream().filter(s->s.getId().equals(Id)).collect(Collectors.toList());
         return  users.isEmpty();
     }
 
@@ -79,9 +79,9 @@ public class BookingAppointmentImplement implements  BookingAppointmentService {
     public String ChangeStatus(Long Id,Boolean status){
         var getBook = bookingAppointmentRepository.findById(Id);
         var book = getBook.get();
-        book.setIS_COMPLETE(status);
-        book.setUPDATED_BY(GlobalHelper.Str.ADMIN);
-        book.setUPDATED_DATE(new Date());
+        book.setIsComplete(status);
+        book.setUpdatedBy(GlobalHelper.Str.ADMIN);
+        book.setUpdatedDate(new Date());
         bookingAppointmentRepository.save(book);
         return  "Change status already";
     }

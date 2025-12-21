@@ -31,17 +31,17 @@ public class CarImplement implements  CarService {
        
         if (filter.getStatus() != null) {
                 list = list.stream()
-                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .filter(s -> s.getStatus().equals(filter.getStatus()))
                         .collect(Collectors.toList());
         }
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
         var totalRecord = list.size();
          if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
             list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
         }
         return list.stream().map(s->{
             var pathImage = "";
-            var img = imageRepository.findByRefIdAndType(s.getID(), CarHelper.FolderName.Car.toUpperCase());
+            var img = imageRepository.findByRefIdAndType(s.getId(), CarHelper.FolderName.Car.toUpperCase());
             if(img!=null) pathImage = img.getHostImage()+"/"+img.getPathImage();
             return CarMapper.MaptoDto(s,totalRecord,pathImage);
         }).collect(Collectors.toList());
@@ -60,7 +60,7 @@ public class CarImplement implements  CarService {
             image.setHostImage(dto.getHostName());
             image.setNameImage(dto.getFilename());
             image.setSizeImage(dto.getSize());
-            image.setRefId(data.getID());
+            image.setRefId(data.getId());
             image.setType(CarHelper.FolderName.Car.toUpperCase());
             image.setTypeImage(dto.getType());
             image.setPathImage(dto.getPathFilename());
@@ -77,12 +77,12 @@ public class CarImplement implements  CarService {
         var data = carRepository.findById(model.getId()).get();
         var image = imageRepository.findByRefIdAndType(model.getId(), CarHelper.FolderName.Car.toUpperCase());
         var upload = new UploadImageHandler(CarHelper.FolderName.Car);
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setUPDATED_BY(GlobalHelper.Str.ADMIN);
-        data.setSTATUS(model.getStatus());
-        data.setUPDATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setUpdatedBy(GlobalHelper.Str.ADMIN);
+        data.setStatus(model.getStatus());
+        data.setUpdatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         carRepository.save(data);
         if(model.getUpload()!=null){
             if(image!=null) {
@@ -94,7 +94,7 @@ public class CarImplement implements  CarService {
             newImg.setHostImage(dto.getHostName());
             newImg.setNameImage(dto.getFilename());
             newImg.setSizeImage(dto.getSize());
-            newImg.setRefId(data.getID());
+            newImg.setRefId(data.getId());
             newImg.setType(CarHelper.FolderName.Car.toUpperCase());
             newImg.setTypeImage(dto.getType());
             newImg.setPathImage(dto.getPathFilename());

@@ -29,14 +29,14 @@ public class OwnerInfoImplement implements  OwnerInfoService {
     public List<OwnerInfoDto> List(OwnerInfoFilterDataModel filter){
         // var list = ownerInfoRepository.findAll(OwnerInfoSpec.Search(filter.getSearch()).and(OwnerInfoSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
         var list = ownerInfoRepository.findAll(OwnerInfoSpec.Search(filter.getSearch()).and(OwnerInfoSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
         var totalRecord = list.size();
          if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
             list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
         }
         return list.stream().map(s->{
             var pathImage = "";
-            var img = imageRepository.findByRefIdAndType(s.getID(), OwnerInfoHelper.FolderName.Owner);
+            var img = imageRepository.findByRefIdAndType(s.getId(), OwnerInfoHelper.FolderName.Owner);
             if(img!=null) pathImage = img.getHostImage()+"/"+img.getPathImage();
             return OwnerInfoMapper.MaptoDto(s,totalRecord,pathImage);
         }).collect(Collectors.toList());
@@ -54,7 +54,7 @@ public class OwnerInfoImplement implements  OwnerInfoService {
             image.setHostImage(dto.getHostName());
             image.setNameImage(dto.getFilename());
             image.setSizeImage(dto.getSize());
-            image.setRefId(data.getID());
+            image.setRefId(data.getId());
             image.setType(OwnerInfoHelper.FolderName.Owner);
             image.setTypeImage(dto.getType());
             image.setPathImage(dto.getPathFilename());
@@ -71,24 +71,24 @@ public class OwnerInfoImplement implements  OwnerInfoService {
         var upload = new UploadImageHandler(OwnerInfoHelper.FolderName.Owner.toLowerCase());
         var data = ownerInfoRepository.findById(model.getId()).get();
         var PathImage="";
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setUPDATED_BY(GlobalHelper.Str.ADMIN);
-        data.setUPDATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
-        data.setEMAIL(model.getEmail());
-        data.setPHONE(model.getPhone());
-        data.setSUB_DESCRIPTION(model.getSubDescription());
-        data.setSUB_DESCRIPTION_EN(model.getSubDescriptionEnglish());
-        data.setDESCRIPTION_EN(model.getDescriptionEnglish());
-        data.setPHONE1(model.getPhone1());
-        data.setDESCRIPTION(model.getDescription());
-        data.setFACEBOOK_URL(model.getFacebookUrl());
-        data.setIN_URL(model.getInUrl());
-        data.setINSTAGRAM_URL(model.getInstagramUrl());
-        data.setTELEGRAM_URL(model.getTelegramUrl());
-        data.setYOUTUBE_URL(model.getYoutubeUrl());
-        data.setWORKING_INFO(model.getWorkingInfo());
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setUpdatedBy(GlobalHelper.Str.ADMIN);
+        data.setUpdatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
+        data.setEmail(model.getEmail());
+        data.setPhone(model.getPhone());
+        data.setSubDescription(model.getSubDescription());
+        data.setSubDescriptionEnglish(model.getSubDescriptionEnglish());
+        data.setDescriptionEnglish(model.getDescriptionEnglish());
+        data.setPhone1(model.getPhone1());
+        data.setDescription(model.getDescription());
+        data.setFacebookUrl(model.getFacebookUrl());
+        data.setInUrl(model.getInUrl());
+        data.setInstagramUrl(model.getInstagramUrl());
+        data.setTelegramUrl(model.getTelegramUrl());
+        data.setYoutubeUrl(model.getYoutubeUrl());
+        data.setWorkingInfo(model.getWorkingInfo());
         ownerInfoRepository.save(data);
         if(model.getUpload()!=null){
             if(image!=null) {
@@ -100,7 +100,7 @@ public class OwnerInfoImplement implements  OwnerInfoService {
             newImg.setHostImage(dto.getHostName());
             newImg.setNameImage(dto.getFilename());
             newImg.setSizeImage(dto.getSize());
-            newImg.setRefId(data.getID());
+            newImg.setRefId(data.getId());
             newImg.setType(OwnerInfoHelper.FolderName.Owner);
             newImg.setTypeImage(dto.getType());
             newImg.setPathImage(dto.getPathFilename());

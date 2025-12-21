@@ -26,10 +26,10 @@ public class AuthAccessImplement implements  AuthAccessService {
     public List<AuthAccessDto> List(AuthAccessFilterDataModel filter){
         var list = authAccessRepository.findAll(AuthAccessSpec.Search(filter.getSearch()).and(AuthAccessSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
        
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
         if (filter.getStatus() != null) {
                 list = list.stream()
-                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .filter(s -> s.getStatus().equals(filter.getStatus()))
                         .collect(Collectors.toList());
         }
         var total = list.size();
@@ -53,12 +53,12 @@ public class AuthAccessImplement implements  AuthAccessService {
     public AuthAccessDto Update(AuthAccessDataModel model){
         var data = authAccessRepository.findById(model.getId()).get();
         String hashedPassword = passwordEncoder.encode(model.getPassword());
-        data.setPASSWORD(hashedPassword);
-        data.setUSER_ID(model.getUserId());
-        data.setUSERNAME(model.getUserName());
-        data.setSTATUS(model.getStatus());
-        data.setUPDATED_DATE(new Date());
-        data.setUPDATED_BY(GlobalHelper.Str.ADMIN);
+        data.setPassword(hashedPassword);
+        data.setUserId(model.getUserId());
+        data.setUsername(model.getUserName());
+        data.setStatus(model.getStatus());
+        data.setUpdatedDate(new Date());
+        data.setUpdatedBy(GlobalHelper.Str.ADMIN);
         authAccessRepository.save(data);
         var result = AuthAccessMapper.MaptoDto(data,1);
         return result;
@@ -72,18 +72,18 @@ public class AuthAccessImplement implements  AuthAccessService {
 
     @Override
     public Boolean IsLoginSuccess(String username,String password){
-        var usernameLog = authAccessRepository.findAll().stream().filter(s->s.getUSERNAME().equals(username)).findFirst();
+        var usernameLog = authAccessRepository.findAll().stream().filter(s->s.getUsername().equals(username)).findFirst();
         if(usernameLog.isEmpty()) return false;
         var user = usernameLog.get();
-        boolean isMatch = passwordEncoder.matches(password, user.getPASSWORD());
+        boolean isMatch = passwordEncoder.matches(password, user.getPassword());
         return  isMatch;
     }
 
     @Override
     public Boolean CheckUsername(String name,Long Id){
-        var isExisted = authAccessRepository.findAll().stream().filter(s->s.getUSERNAME().equals(name)).collect(Collectors.toList());
+        var isExisted = authAccessRepository.findAll().stream().filter(s->s.getUsername().equals(name)).collect(Collectors.toList());
         if(Id>0){
-            isExisted = isExisted.stream().filter(s->!s.getID().equals(Id)).collect(Collectors.toList());
+            isExisted = isExisted.stream().filter(s->!s.getId().equals(Id)).collect(Collectors.toList());
         }
         return  !isExisted.isEmpty();
     }

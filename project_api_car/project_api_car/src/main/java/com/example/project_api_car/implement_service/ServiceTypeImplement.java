@@ -26,10 +26,10 @@ public class ServiceTypeImplement implements  ServiceTypeService {
       
         if (filter.getStatus() != null) {
                 list = list.stream()
-                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .filter(s -> s.getStatus().equals(filter.getStatus()))
                         .collect(Collectors.toList());
         }
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
         var totalRecord = list.size();
         if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
             list = list.stream().skip(filter.getPage()-1).limit(filter.getRecord()*filter.getPage()).collect(Collectors.toList());
@@ -48,12 +48,12 @@ public class ServiceTypeImplement implements  ServiceTypeService {
     @Override
     public ServiceTypeDto Update(ServiceTypeDataModel model){
         var data = serviceTypeRepository.findById(model.getId()).get();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setUPDATED_BY(GlobalHelper.Str.ADMIN);
-        data.setSTATUS(model.getStatus());
-        data.setUPDATED_DATE(new Date());
-        data.setDB_CODE(GlobalHelper.Str.GlobalDatabase);
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setUpdatedBy(GlobalHelper.Str.ADMIN);
+        data.setStatus(model.getStatus());
+        data.setUpdatedDate(new Date());
+        data.setDbCode(GlobalHelper.Str.GlobalDatabase);
         serviceTypeRepository.save(data);
         var result = ServiceTypeMapper.MaptoDto(data,1);
         return result;

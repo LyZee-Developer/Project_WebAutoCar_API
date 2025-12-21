@@ -27,10 +27,10 @@ public class UserImplement implements  UserService {
     @Override
     public List<UserDto> List(UserFilterDataModel filter){
         var list = userRepository.findAll(UserSpec.Search(filter.getSearch()).and(UserSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
          if (filter.getStatus() != null) {
                 list = list.stream()
-                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .filter(s -> s.getStatus().equals(filter.getStatus()))
                         .collect(Collectors.toList());
         }
         var total = list.size();
@@ -39,7 +39,7 @@ public class UserImplement implements  UserService {
         }
         return list.stream().map(s->{
              var pathImage = "";
-            var img = imageRepository.findByRefIdAndType(s.getID(), UserHelper.FolderName.User.toUpperCase());
+            var img = imageRepository.findByRefIdAndType(s.getId(), UserHelper.FolderName.User.toUpperCase());
             if(img!=null) pathImage = img.getHostImage()+"/"+img.getPathImage();
             return UserMapper.MaptoDto(s,total,pathImage);
         }).collect(Collectors.toList());
@@ -57,7 +57,7 @@ public class UserImplement implements  UserService {
             image.setHostImage(dto.getHostName());
             image.setNameImage(dto.getFilename());
             image.setSizeImage(dto.getSize());
-            image.setRefId(data.getID());
+            image.setRefId(data.getId());
             image.setType(UserHelper.FolderName.User.toUpperCase());
             image.setTypeImage(dto.getType());
             image.setPathImage(dto.getPathFilename());
@@ -74,16 +74,16 @@ public class UserImplement implements  UserService {
         var data = userRepository.findById(model.getId()).get();
         var upload = new UploadImageHandler(UserHelper.FolderName.User.toLowerCase());
         var PathImage="";
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setUPDATED_BY(model.getUsername());
-        data.setGENDER(model.getGender());
-        data.setSTATUS(model.getStatus());
-        data.setPHONE(model.getPhone());
-        data.setPHONE1(model.getPhone1());
-        data.setUSER_CODE(model.getUserCode());
-        data.setEMAIL(model.getEmail());
-        data.setUPDATED_DATE(new Date());
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setUpdatedBy(model.getUsername());
+        data.setGender(model.getGender());
+        data.setStatus(model.getStatus());
+        data.setPhone(model.getPhone());
+        data.setPhone1(model.getPhone1());
+        data.setUserCode(model.getUserCode());
+        data.setEmail(model.getEmail());
+        data.setUpdatedDate(new Date());
         userRepository.save(data);
         if(model.getUpload()!=null){
             if(image!=null) {
@@ -95,7 +95,7 @@ public class UserImplement implements  UserService {
             newImg.setHostImage(dto.getHostName());
             newImg.setNameImage(dto.getFilename());
             newImg.setSizeImage(dto.getSize());
-            newImg.setRefId(data.getID());
+            newImg.setRefId(data.getId());
             newImg.setType(UserHelper.FolderName.User);
             newImg.setTypeImage(dto.getType());
             newImg.setPathImage(dto.getPathFilename());
@@ -114,9 +114,9 @@ public class UserImplement implements  UserService {
 
     @Override
     public Boolean CheckCode(String code,Long Id){
-        var codes = userRepository.findAll().stream().filter(s->s.getUSER_CODE().equals(code)).collect(Collectors.toList());
+        var codes = userRepository.findAll().stream().filter(s->s.getUserCode().equals(code)).collect(Collectors.toList());
         if(Id>0){
-            var lists = codes.stream().filter(s->!s.getID().equals(Id)).collect(Collectors.toList());
+            var lists = codes.stream().filter(s->!s.getId().equals(Id)).collect(Collectors.toList());
             return !lists.isEmpty();
         } 
         return  !codes.isEmpty();
@@ -124,7 +124,7 @@ public class UserImplement implements  UserService {
 
     @Override
     public Boolean IsExistedUserById(Long Id){
-        var users = userRepository.findAll().stream().filter(s->s.getID().equals(Id)).collect(Collectors.toList());
+        var users = userRepository.findAll().stream().filter(s->s.getId().equals(Id)).collect(Collectors.toList());
         return  users.isEmpty();
     }
     @Override

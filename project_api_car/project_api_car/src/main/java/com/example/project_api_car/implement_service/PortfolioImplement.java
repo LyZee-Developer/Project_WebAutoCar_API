@@ -1,11 +1,9 @@
 package com.example.project_api_car.implement_service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Service;
 
 import com.example.project_api_car.data_model.portfolio.PortfolioDataModel;
@@ -13,10 +11,7 @@ import com.example.project_api_car.data_model.portfolio.PortfolioFilterDataModel
 import com.example.project_api_car.data_model.upload.UploadDataModel;
 import com.example.project_api_car.dto.ImageDto;
 import com.example.project_api_car.dto.PortfolioDto;
-import com.example.project_api_car.dto.UploadDto;
 import com.example.project_api_car.entity.DB_IMAGE;
-import com.example.project_api_car.helper.CarHelper;
-import com.example.project_api_car.helper.GlobalHelper;
 import com.example.project_api_car.helper.PortfolioHelper;
 import com.example.project_api_car.mapper.PortfolioMapper;
 import com.example.project_api_car.repository.ImageRepository;

@@ -43,7 +43,7 @@ public class AuthAccessController {
             }
             var checkType = AuthAccessHelper.Type.Type.contains(model.getType());
             if(!checkType) return new ResponseEntity<>(new ApiResponseHandler().SetDetail("Invalid type A(Admin) O(Other))!"),HttpStatus.BAD_REQUEST);
-             var ListType = authAccessRepository.findAll().stream().filter(s ->s.getTYPE().trim().equals(model.getType()) && s.getSTATUS() && s.getUSER_ID().longValue()==model.getUserId()).collect(Collectors.toList());
+             var ListType = authAccessRepository.findAll().stream().filter(s ->s.getType().trim().equals(model.getType()) && s.getStatus() && s.getUserId().longValue()==model.getUserId()).collect(Collectors.toList());
             if(!ListType.isEmpty()){
                  return new ResponseEntity<>(new ApiResponseHandler().SetDetail("This user have already type"+(model.getType().trim().equals("A")?"(Admin)":"(Other)")),HttpStatus.BAD_REQUEST);
             }

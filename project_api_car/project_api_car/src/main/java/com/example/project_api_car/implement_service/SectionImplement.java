@@ -23,10 +23,10 @@ public class SectionImplement implements  SectionService {
     public List<SectionDto> List(SectionFilterDataModel filter){
         var list = sectionRepository.findAll(SectionSpec.Search(filter.getSearch()).and(SectionSpec.OrderDir(filter.getOrderDir(),filter.getOrderBy())));
        
-        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getID().equals(filter.getId())).collect(Collectors.toList());
+        if(filter.getId() != null && filter.getId()>0) list = list.stream().filter(s->s.getId().equals(filter.getId())).collect(Collectors.toList());
         if (filter.getStatus() != null) {
                 list = list.stream()
-                        .filter(s -> s.getSTATUS().equals(filter.getStatus()))
+                        .filter(s -> s.getStatus().equals(filter.getStatus()))
                         .collect(Collectors.toList());
         }
          if(filter.getPage() !=null && filter.getRecord()!=null && filter.getPage()>0 && filter.getRecord()>0){
@@ -46,12 +46,12 @@ public class SectionImplement implements  SectionService {
     @Override
     public SectionDto Update(SectionDataModel model){
         var data = sectionRepository.findById(model.getId()).get();
-        data.setNAME(model.getName());
-        data.setNAME_EN(model.getEnglishName());
-        data.setUPDATED_BY(model.getUsername());
-        data.setSTATUS(model.getStatus());
-        data.setUPDATED_DATE(new Date());
-        data.setDB_CODE(model.getDatabase());
+        data.setName(model.getName());
+        data.setNameEn(model.getEnglishName());
+        data.setUpdatedBy(model.getUsername());
+        data.setStatus(model.getStatus());
+        data.setUpdatedDate(new Date());
+        data.setDbCode(model.getDatabase());
         sectionRepository.save(data);
         var result = SectionMapper.MaptoDto(data);
         return result;
